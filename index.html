@@ -13,7 +13,7 @@
 		<div id="app">
 			<div class="main">
 				<div class="header">
-					<div class="logo">MYToDo</div>
+					<div class="logo">MyTodo</div>
 					<input type="text" @keydown.enter="enterEvent" v-model="inputValue" placeholder="请输入待办事件">
 				</div>
 				<div class="doing todo">
@@ -21,7 +21,7 @@
 					<div class="list">
 						<transition-group name="custom-classes-transition" enter-active-class="animated bounceInLeft"
 						 leave-active-class="animated bounceOutRight">
-							<div class="todoItem" v-for="item,index in doingList" :key="'doing'+index">
+							<div class="todoItem" v-for="(item,index) in doingList" :key="'doing'+index">
 								<input type="checkbox" @click.prevent="checkDone(item.id)">
 								<div class="content">{{item.content}}</div>
 								<div class="del" @click="delItem(item.id)">删除</div>
@@ -35,7 +35,7 @@
 						<transition-group name="doingItem" name="custom-classes-transition" enter-active-class="animated bounceInLeft"
 						 leave-active-class="animated bounceOutRight">
 
-							<div class="todoItem" v-for="item,index in doneList" :key="'done'+index">
+							<div class="todoItem" v-for="(item,index) in doneList" :key="'done'+index">
 								<input type="checkbox" @click.prevent="checkDone(item.id)" checked="checked">
 								<div class="content">{{item.content}}</div>
 								<div class="del" @click="delItem(item.id)">删除</div>
